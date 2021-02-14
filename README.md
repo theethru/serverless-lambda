@@ -15,20 +15,17 @@ serverless 프레임워크를 기반으로 AWS람다에서 동작하는 RESTful 
 설정 파일은 **src/configs** 디렉토리에 위치합니다.
 local(로컬), dev(개발서버), prod(운영) 환경별로 설정이 가능합니다.
 
-#### **app.config.js**
-#### APP 관련 설정   
+#### **app.config.js** : APP 관련 설정   
 > **URL** : 앱에서 사용될 URL관련 설정   
 
 
-#### **aws.config.js**
-> AWS 관련 설정   
+#### **aws.config.js** : AWS 관련 설정   
 **LAMBDA** : 람다 관련 설정   
 **DOMAIN** : 도메인 관련 설정(API에 등록된 값으로 도메인 생성 및 배포)   
 **S3** : S3 관련 설정   
 
 
-#### **credential.config.js**
-> 인증관련 설정   
+#### **credential.config.js** : 인증관련 설정   
 **APP** : 앱에서 사용될 설정(HASH_SALT, JWT_PRIVATE_KEY 에 등록된 값은 반드시 변경해주세요)   
 **AWS** : AWS에 사용될 설정   
 **DB** : DB에 사용될 설정   
@@ -112,33 +109,23 @@ local(로컬), dev(개발서버), prod(운영) 환경별로 설정이 가능합�
 ## 주요 파일
 > **src/data/user.data.ts**
 > 접속한 사용자의 헤더 정보와 로그인 정보
-
 > **src/db/manager.db.ts**
 > DB의 접속 및 관리
-
 > **src/definitions/table.definition.ts**
 > DB 테이블 정보
-
 > **src/exceptions/common.exception.ts**
 > 예외처리 관련 로직
-
 > **src/helpers/*.helper.ts**
 > 헬퍼 파일
-
 > **src/interfaces/express.interface.ts**
 > Express용 Request, Response, NextFunction 인터페이스 재 정의
-
 > **src/loggers/common.logger.ts**
 > 로거
-
 > **src/models/*.model.ts**
 > DB 관련 로직
-
 > **src/services/*.service.ts**
 > Service 관련 로직
-
 > **src/routers/*.router.ts**
 > Router 파일
-
 > **src/app.ts**
 > Lambda 서비스의 엔트리 포인트 핸들러
