@@ -1,4 +1,4 @@
-THEETHRU serverless-lambda
+THEETHRU Serverless-Lambda Framework
 ===
 
 ## 소개(Intro)
