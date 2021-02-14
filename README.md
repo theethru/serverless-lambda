@@ -2,7 +2,7 @@ THEETHRU serverless-lambda
 ===
 
 ## 소개(Intro)
-serverless 프레임 워크를 기반으로 AWS람다에서 동작하는 RESTful API 서버 모듈입니다.
+serverless 프레임워크를 기반으로 AWS람다에서 동작하는 RESTful API 서버 프레임워크.
 > Framework : Serverless
 
 > Routing : Express
