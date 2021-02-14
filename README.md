@@ -52,11 +52,13 @@ local(로컬), dev(개발서버), prod(운영) 환경별로 설정이 가능합�
 
 #### DB
 > 테스트용 DB덤프 파일   
-> /dump/db/theethru.sql
+
+    /dump/db/theethru.sql
 
 #### API
 > POST man 컬렉션 파일   
-> /dump/postman/collection.json
+
+    /dump/postman/collection.json
 
 #### 로컬 서버 실행
     $ ./serve.sh
