@@ -68,35 +68,45 @@ local(로컬), dev(개발서버), prod(운영) 환경별로 설정이 가능합�
 #### 준비된 API
 
 > **공통 코드 요청**
-> GET : /app/code 
+
+    GET : /app/code 
 
 > **회원 가입**
-> POST : /auth/signup
-> 
+
+    POST : /auth/signup
+
 > **로그인**
-> POST : /auth/login
-> 
+    
+    POST : /auth/login
+
 > **액세스 토큰 체크**
-> POST : /auth/check-access-token
-> 
+    
+    POST : /auth/check-access-token
+
 > **액세스 토큰 갱신**
-> POST : /auth/refresh-access-token
-> 
+
+    POST : /auth/refresh-access-token
+
 > **탈퇴**
-> POST : /auth/secession
+
+    POST : /auth/secession
 
 > **내 정보 요청**
-> GET : /my/info
-> 
+
+    GET : /my/info
+
 > **내 정보 수정**
-> PUT : /my/info
-> 
+
+    PUT : /my/info
+
 > **비밀번호 수정**
-> PATCH : /my/password
+
+    PATCH : /my/password
 
 > **이미지 업로드 요청**
-> POST : /image
-> *본 API호출 후 응답에 포함된 uploadUrl을 이용하여 실제 S3에 파일을 업로드
+
+    POST : /image
+    *본 API호출 후 응답에 포함된 uploadUrl을 이용하여 실제 S3에 파일을 업로드
 
 ---
 
