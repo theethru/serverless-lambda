@@ -16,8 +16,8 @@ serverless 프레임워크를 기반으로 AWS람다에서 동작하는 RESTful 
 local(로컬), dev(개발서버), prod(운영) 환경별로 설정이 가능합니다.
 
 #### **app.config.js**
-> APP 관련 설정   
-**URL** : 앱에서 사용될 URL관련 설정   
+#### APP 관련 설정   
+> **URL** : 앱에서 사용될 URL관련 설정   
 
 
 #### **aws.config.js**
