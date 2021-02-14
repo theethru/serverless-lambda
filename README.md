@@ -16,22 +16,22 @@ serverless 프레임워크를 기반으로 AWS람다에서 동작하는 RESTful 
 local(로컬), dev(개발서버), prod(운영) 환경별로 설정이 가능합니다.
 
 #### **app.config.js**
-> APP 관련 설정
-**URL** : 앱에서 사용될 URL관련 설정
+> APP 관련 설정   
+**URL** : 앱에서 사용될 URL관련 설정   
 
 
 #### **aws.config.js**
-> AWS 관련 설정
-**LAMBDA** : 람다 관련 설정
-**DOMAIN** : 도메인 관련 설정(API에 등록된 값으로 도메인 생성 및 배포)
-**S3** : S3 관련 설정
+> AWS 관련 설정   
+**LAMBDA** : 람다 관련 설정   
+**DOMAIN** : 도메인 관련 설정(API에 등록된 값으로 도메인 생성 및 배포)   
+**S3** : S3 관련 설정   
 
 
 #### **credential.config.js**
-> 인증관련 설정
-**APP** : 앱에서 사용될 설정(HASH_SALT, JWT_PRIVATE_KEY 에 등록된 값은 반드시 변경해주세요)
-**AWS** : AWS에 사용될 설정
-**DB** : DB에 사용될 설정
+> 인증관련 설정   
+**APP** : 앱에서 사용될 설정(HASH_SALT, JWT_PRIVATE_KEY 에 등록된 값은 반드시 변경해주세요)   
+**AWS** : AWS에 사용될 설정   
+**DB** : DB에 사용될 설정   
 
 ---
 
