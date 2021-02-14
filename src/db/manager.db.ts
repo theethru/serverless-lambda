@@ -83,7 +83,7 @@ export default class DbManager implements IDb {
         }
     }
 
-    query = async (query: string, values: array = null) => {
+    query = async (query: string, values: any[] = null) => {
         if (!this.pool) {
             throw new Error("There are no pool");
         } else if (!this.conn) {
