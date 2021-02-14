@@ -1,0 +1,97 @@
+service: theethru
+
+plugins:
+  - serverless-webpack
+  - serverless-domain-manager
+  - serverless-offline
+
+package:
+  include:
+    - ./node_modules
+
+custom:
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'ap-northeast-2'}
+
+  awsLambdaConfig: ${file(./src/configs/aws.config.js):LAMBDA}
+  awsDomainConfig: ${file(./src/configs/aws.config.js):DOMAIN}
+  awsS3Config: ${file(./src/configs/aws.config.js):S3}
+  awsUrlConfig: ${file(./src/configs/aws.config.js):URL}
+
+  appUrlConfig: ${file(./src/configs/app.config.js):URL}
+
+  credentialAppConfig: ${file(./src/configs/credential.config.js):APP}
+  credentialAwsConfig: ${file(./src/configs/credential.config.js):AWS}
+  credentialDbConfig: ${file(./src/configs/credential.config.js):DB}
+
+  customDomain:
+    domainName: ${self:custom.awsDomainConfig.${self:custom.stage}.API}
+    stage: ${self:custom.stage}
+    createRoute53Record: true
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules:
+      forceExclude:
+        - aws-sdk
+      packagePath: ./package.json
+
+provider:
+  name: aws
+  runtime: ${self:custom.awsLambdaConfig.${self:custom.stage}.RUNTIME}
+  memorySize: ${self:custom.awsLambdaConfig.${self:custom.stage}.MEMORY_SIZE}
+  timeout: ${self:custom.awsLambdaConfig.${self:custom.stage}.TIMEOUT}
+  region: ${self:custom.region}
+
+  environment:
+    REGION: ${self:custom.region}
+    STAGE: ${self:custom.stage}
+
+    CREDENTIAL_APP_ACCESS_KEY: ${self:custom.credentialAppConfig.${self:custom.stage}.ACCESS_KEY}
+    CREDENTIAL_APP_SECRET_KEY: ${self:custom.credentialAppConfig.${self:custom.stage}.SECRET_KEY}
+    CREDENTIAL_APP_HASH_SALT: ${self:custom.credentialAppConfig.${self:custom.stage}.HASH_SALT}
+    CREDENTIAL_JWT_PRIVATE_KEY: ${self:custom.credentialAppConfig.${self:custom.stage}.JWT_PRIVATE_KEY}
+
+    CREDENTIAL_DB_ENDPOINT: ${self:custom.credentialDbConfig.${self:custom.stage}.ENDPOINT}
+    CREDENTIAL_DB_USERNAME: ${self:custom.credentialDbConfig.${self:custom.stage}.USERNAME}
+    CREDENTIAL_DB_PASSWORD: ${self:custom.credentialDbConfig.${self:custom.stage}.PASSWORD}
+    CREDENTIAL_DB_DATABASE: ${self:custom.credentialDbConfig.${self:custom.stage}.DATABASE}
+    CREDENTIAL_DB_PORT: ${self:custom.credentialDbConfig.${self:custom.stage}.PORT}
+
+    AWS_DOMAIN_API: ${self:custom.awsDomainConfig.${self:custom.stage}.API}
+
+    AWS_S3_IMAGE_BUCKET: ${self:custom.awsS3Config.${self:custom.stage}.IMAGE_BUCKET}
+    AWS_URL_IMAGE_CDN: ${self:custom.awsUrlConfig.${self:custom.stage}.IMAGE_CDN}
+    AWS_URL_IMAGE_S3: ${self:custom.awsUrlConfig.${self:custom.stage}.IMAGE_S3}
+
+  ## If you set your lambda on VPC, uncomment below settings
+  # vpc:
+  #   securityGroupIds:
+  #     -
+  #   subnetIds:
+  #     -
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - lambda:*
+        - logs:*
+        - ec2:CreateNetworkInterface
+        - ec2:DescribeNetworkInterfaces
+        - ec2:DeleteNetworkInterface
+        - s3:*
+        - dynamodb:*
+      Resource:
+        - "*"
+
+functions:
+  app:
+    handler: src/app.handler
+    events:
+      - http:
+          path: ""
+          method: ANY
+          # cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          # cors: true
