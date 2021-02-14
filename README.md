@@ -107,25 +107,25 @@ local(로컬), dev(개발서버), prod(운영) 환경별로 설정이 가능합�
 --- 
 
 ## 주요 파일
-> **src/data/user.data.ts**
-> 접속한 사용자의 헤더 정보와 로그인 정보
-> **src/db/manager.db.ts**
-> DB의 접속 및 관리
-> **src/definitions/table.definition.ts**
-> DB 테이블 정보
-> **src/exceptions/common.exception.ts**
-> 예외처리 관련 로직
-> **src/helpers/*.helper.ts**
-> 헬퍼 파일
-> **src/interfaces/express.interface.ts**
-> Express용 Request, Response, NextFunction 인터페이스 재 정의
-> **src/loggers/common.logger.ts**
-> 로거
-> **src/models/*.model.ts**
-> DB 관련 로직
-> **src/services/*.service.ts**
-> Service 관련 로직
-> **src/routers/*.router.ts**
-> Router 파일
-> **src/app.ts**
-> Lambda 서비스의 엔트리 포인트 핸들러
+> **src/data/user.data.ts**   
+> 접속한 사용자의 헤더 정보와 로그인 정보   
+> **src/db/manager.db.ts**   
+> DB의 접속 및 관리   
+> **src/definitions/table.definition.ts**   
+> DB 테이블 정보   
+> **src/exceptions/common.exception.ts**   
+> 예외처리 관련 로직   
+> **src/helpers/*.helper.ts**   
+> 헬퍼 파일   
+> **src/interfaces/express.interface.ts**   
+> Express용 Request, Response, NextFunction 인터페이스 재 정의   
+> **src/loggers/common.logger.ts**   
+> 로거   
+> **src/models/*.model.ts**   
+> DB 관련 로직   
+> **src/services/*.service.ts**   
+> Service 관련 로직   
+> **src/routers/*.router.ts**   
+> Router 파일   
+> **src/app.ts**   
+> Lambda 서비스의 엔트리 포인트 핸들러   
